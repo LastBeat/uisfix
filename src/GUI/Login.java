@@ -12,16 +12,18 @@ public class Login extends JFrame {
     private static JTextField FieldID;
     private static JPasswordField FieldPW;
 
-    public Login() {
+    public Login(JTextField id, JPasswordField password) {
         setTitle("대학정보시스템(UIS)::Login"); // 화면 Title 지정
         setResizable(false); // 화면 크기 조정 불가
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // 화면 종료 시 프로세스도 종료
+        // setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // 화면 종료 시 프로세스도 종료
         setBounds(100, 100, 510, 340);
         contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         setContentPane(contentPane);
         contentPane.setLayout(null);
         setVisible(true);
+
+        Font basicFont = new Font("맑은 고딕", Font.BOLD, 13);
 
         JPanel panel = new JPanel();
         panel.setBounds(0, 0, 504, 305);
@@ -32,27 +34,27 @@ public class Login extends JFrame {
         LabelPW.setBounds(160, 158, 76, 19);
         panel.add(LabelPW);
         LabelPW.setForeground(Color.DARK_GRAY);
-        LabelPW.setFont(new Font("맑은 고딕", Font.BOLD, 13));
+        LabelPW.setFont(basicFont);
 
         JLabel LabelTitle = new JLabel("대학정보시스템(UIS)");
         LabelTitle.setBounds(160, 66, 191, 32);
         panel.add(LabelTitle);
         LabelTitle.setForeground(new Color(25, 25, 112));
-        LabelTitle.setFont(new Font("맑은 고딕", Font.BOLD, 20));
+        LabelTitle.setFont(basicFont);
 
         JLabel LabelID = new JLabel("ID");
         LabelID.setBounds(161, 127, 22, 23);
         panel.add(LabelID);
         LabelID.setForeground(Color.DARK_GRAY);
-        LabelID.setFont(new Font("맑은 고딕", Font.BOLD, 13));
+        LabelID.setFont(basicFont);
 
-        FieldID = new JTextField();
+        FieldID = id;
 
         FieldID.setBounds(221, 129, 130, 19);
         panel.add(FieldID);
         FieldID.setColumns(10);
 
-        FieldPW = new JPasswordField();
+        FieldPW = password;
         FieldPW.setBounds(221, 158, 130, 19);
         panel.add(FieldPW);
         FieldPW.setColumns(10);
@@ -66,24 +68,24 @@ public class Login extends JFrame {
         BtnLogin.setOpaque(true); // 2 //1,2를 선언해줘야 변경하기 버튼의 배경색
         BtnLogin.setBackground(new Color(0, 0, 139));
 
-        /* BtnLogin.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent arg0) {
+        // BtnLogin.addActionListener(new ActionListener() {
+            /* public void actionPerformed(ActionEvent arg0) {
                 new DAO(); // 데이터를 불러옴
                 Check(); // 허용된 사용자인지 확인
             }
         }); */
 
-        BtnLogin.setFont(new Font("맑은 고딕", Font.BOLD, 14));
+        BtnLogin.setFont(basicFont);
 
         JLabel label = new JLabel("");
         label.setBounds(-3, 0, 510, 305);
-        label.setIcon(new ImageIcon("./Images/Login_sc.jpg"));
+        // label.setIcon(new ImageIcon("./Images/Login_sc.jpg"));
         panel.add(label);
     }
 
     // 등록된 계정인지 확인하는 기능을 수행하는 메소드
-    /* public void Check() {
-        HashMap<String, String> map = new HashMap<String, String>();
+    // public void Check() {
+        /* HashMap<String, String> map = new HashMap<String, String>();
         DAO dao = new DAO();
         ArrayList<LoginGS> members = new ArrayList<LoginGS>();
 
