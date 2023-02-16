@@ -1,4 +1,4 @@
-import GUI.Login;
+import gui.Login;
 
 import javax.swing.*;
 

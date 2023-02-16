@@ -1,4 +1,4 @@
-package GUI;
+package gui;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -7,13 +7,12 @@ import java.awt.*;
 public class Login extends JFrame {
     private JPanel contentPane;
 
-    private static JTextField fieldid;
-    private static JPasswordField fieldpw;
+    private JTextField fieldid;
+    private JPasswordField fieldpw;
 
     public Login(JTextField id, JPasswordField password) {
         setTitle("대학정보시스템(UIS)::Login"); // 화면 Title 지정
         setResizable(false); // 화면 크기 조정 불가
-        // setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // 화면 종료 시 프로세스도 종료
         setBounds(100, 100, 510, 340);
         contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -70,7 +69,6 @@ public class Login extends JFrame {
 
         JLabel label = new JLabel("");
         label.setBounds(-3, 0, 510, 305);
-        // label.setIcon(new ImageIcon("./Images/Login_sc.jpg"));
         panel.add(label);
     }
 }
