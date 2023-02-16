@@ -6,11 +6,11 @@ import java.awt.*;
 
 public class Login extends JFrame {
     private JPanel contentPane;
-    public static String PassID;
-    public static String PassPW;
+    // public static final String ID = new String();
+    // public static final String PW = new String();
 
-    private static JTextField FieldID;
-    private static JPasswordField FieldPW;
+    private static JTextField FieldId;
+    private static JPasswordField FieldPw;
 
     public Login(JTextField id, JPasswordField password) {
         setTitle("대학정보시스템(UIS)::Login"); // 화면 Title 지정
@@ -30,34 +30,34 @@ public class Login extends JFrame {
         contentPane.add(panel);
         panel.setLayout(null);
 
-        JLabel LabelPW = new JLabel("Password");
-        LabelPW.setBounds(160, 158, 76, 19);
-        panel.add(LabelPW);
-        LabelPW.setForeground(Color.DARK_GRAY);
-        LabelPW.setFont(basicFont);
+        JLabel LabelPw = new JLabel("Password");
+        LabelPw.setBounds(160, 158, 76, 19);
+        panel.add(LabelPw);
+        LabelPw.setForeground(Color.DARK_GRAY);
+        LabelPw.setFont(basicFont);
 
-        JLabel LabelTitle = new JLabel("대학정보시스템(UIS)");
-        LabelTitle.setBounds(160, 66, 191, 32);
-        panel.add(LabelTitle);
-        LabelTitle.setForeground(new Color(25, 25, 112));
-        LabelTitle.setFont(basicFont);
+        JLabel labelTitle = new JLabel("대학정보시스템(UIS)");
+        labelTitle.setBounds(160, 66, 191, 32);
+        panel.add(labelTitle);
+        labelTitle.setForeground(new Color(25, 25, 112));
+        labelTitle.setFont(basicFont);
 
-        JLabel LabelID = new JLabel("ID");
-        LabelID.setBounds(161, 127, 22, 23);
-        panel.add(LabelID);
-        LabelID.setForeground(Color.DARK_GRAY);
-        LabelID.setFont(basicFont);
+        JLabel LabelId = new JLabel("ID");
+        LabelId.setBounds(161, 127, 22, 23);
+        panel.add(LabelId);
+        LabelId.setForeground(Color.DARK_GRAY);
+        LabelId.setFont(basicFont);
 
-        FieldID = id;
+        FieldId = id;
 
-        FieldID.setBounds(221, 129, 130, 19);
-        panel.add(FieldID);
-        FieldID.setColumns(10);
+        FieldId.setBounds(221, 129, 130, 19);
+        panel.add(FieldId);
+        FieldId.setColumns(10);
 
-        FieldPW = password;
-        FieldPW.setBounds(221, 158, 130, 19);
-        panel.add(FieldPW);
-        FieldPW.setColumns(10);
+        FieldPw = password;
+        FieldPw.setBounds(221, 158, 130, 19);
+        panel.add(FieldPw);
+        FieldPw.setColumns(10);
 
         JButton BtnLogin = new JButton("로그인");
         BtnLogin.setBounds(160, 192, 191, 32);
