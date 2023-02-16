@@ -6,11 +6,9 @@ import java.awt.*;
 
 public class Login extends JFrame {
     private JPanel contentPane;
-    // public static final String ID = new String();
-    // public static final String PW = new String();
 
-    private static JTextField FieldId;
-    private static JPasswordField FieldPw;
+    private static JTextField fieldid;
+    private static JPasswordField fieldpw;
 
     public Login(JTextField id, JPasswordField password) {
         setTitle("대학정보시스템(UIS)::Login"); // 화면 Title 지정
@@ -30,117 +28,49 @@ public class Login extends JFrame {
         contentPane.add(panel);
         panel.setLayout(null);
 
-        JLabel LabelPw = new JLabel("Password");
-        LabelPw.setBounds(160, 158, 76, 19);
-        panel.add(LabelPw);
-        LabelPw.setForeground(Color.DARK_GRAY);
-        LabelPw.setFont(basicFont);
+        JLabel labelpw = new JLabel("Password");
+        labelpw.setBounds(160, 158, 76, 19);
+        panel.add(labelpw);
+        labelpw.setForeground(Color.DARK_GRAY);
+        labelpw.setFont(basicFont);
 
-        JLabel labelTitle = new JLabel("대학정보시스템(UIS)");
-        labelTitle.setBounds(160, 66, 191, 32);
-        panel.add(labelTitle);
-        labelTitle.setForeground(new Color(25, 25, 112));
-        labelTitle.setFont(basicFont);
+        JLabel labeltitle = new JLabel("대학정보시스템(UIS)");
+        labeltitle.setBounds(160, 66, 191, 32);
+        panel.add(labeltitle);
+        labeltitle.setForeground(new Color(25, 25, 112));
+        labeltitle.setFont(basicFont);
 
-        JLabel LabelId = new JLabel("ID");
-        LabelId.setBounds(161, 127, 22, 23);
-        panel.add(LabelId);
-        LabelId.setForeground(Color.DARK_GRAY);
-        LabelId.setFont(basicFont);
+        JLabel labelid = new JLabel("ID");
+        labelid.setBounds(161, 127, 22, 23);
+        panel.add(labelid);
+        labelid.setForeground(Color.DARK_GRAY);
+        labelid.setFont(basicFont);
 
-        FieldId = id;
+        fieldid = id;
 
-        FieldId.setBounds(221, 129, 130, 19);
-        panel.add(FieldId);
-        FieldId.setColumns(10);
+        fieldid.setBounds(221, 129, 130, 19);
+        panel.add(fieldid);
+        fieldid.setColumns(10);
 
-        FieldPw = password;
-        FieldPw.setBounds(221, 158, 130, 19);
-        panel.add(FieldPw);
-        FieldPw.setColumns(10);
+        fieldpw = password;
+        fieldpw.setBounds(221, 158, 130, 19);
+        panel.add(fieldpw);
+        fieldpw.setColumns(10);
 
-        JButton BtnLogin = new JButton("로그인");
-        BtnLogin.setBounds(160, 192, 191, 32);
-        panel.add(BtnLogin);
-        BtnLogin.setBackground(new Color(25, 25, 112));
-        BtnLogin.setForeground(new Color(255, 255, 255));
-        BtnLogin.setContentAreaFilled(false); // 1
-        BtnLogin.setOpaque(true); // 2 //1,2를 선언해줘야 변경하기 버튼의 배경색
-        BtnLogin.setBackground(new Color(0, 0, 139));
+        JButton btnlogin = new JButton("로그인");
+        btnlogin.setBounds(160, 192, 191, 32);
+        panel.add(btnlogin);
+        btnlogin.setBackground(new Color(25, 25, 112));
+        btnlogin.setForeground(new Color(255, 255, 255));
+        btnlogin.setContentAreaFilled(false); // 1
+        btnlogin.setOpaque(true); // 2 //1,2를 선언해줘야 변경하기 버튼의 배경색
+        btnlogin.setBackground(new Color(0, 0, 139));
 
-        // BtnLogin.addActionListener(new ActionListener() {
-            /* public void actionPerformed(ActionEvent arg0) {
-                new DAO(); // 데이터를 불러옴
-                Check(); // 허용된 사용자인지 확인
-            }
-        }); */
-
-        BtnLogin.setFont(basicFont);
+        btnlogin.setFont(basicFont);
 
         JLabel label = new JLabel("");
         label.setBounds(-3, 0, 510, 305);
         // label.setIcon(new ImageIcon("./Images/Login_sc.jpg"));
         panel.add(label);
     }
-
-    // 등록된 계정인지 확인하는 기능을 수행하는 메소드
-    // public void Check() {
-        /* HashMap<String, String> map = new HashMap<String, String>();
-        DAO dao = new DAO();
-        ArrayList<LoginGS> members = new ArrayList<LoginGS>();
-
-        try {
-            members = dao.getMembers();
-
-            for (int i = 0; i < members.size(); i++)
-                // DB에서 불러온 자료에서 id, pw 값을 매핑
-                map.put(members.get(i).getId(), members.get(i).getPw());
-
-            while (true) {
-                String id = LoginGUI.FieldID.getText();
-
-                @SuppressWarnings("deprecation")
-                String password = Login.FieldPW.getText();
-
-                if (!map.containsKey(id)) {
-                    JOptionPane.showMessageDialog(null, "입력하신 id는 존재하지 않습니다. 다시 입력해주세요.", "로그인 실패",
-                            JOptionPane.ERROR_MESSAGE);
-                    break;
-                }
-
-                else if (!(map.get(id)).equals(password)) {
-                    JOptionPane.showMessageDialog(null, "비밀번호가 일치하지 않습니다. 다시 입력해주세요.", "로그인 실패",
-                            JOptionPane.ERROR_MESSAGE);
-                    break;
-                }
-
-                else {
-                    setVisible(false);
-
-                    PassID = id;
-                    PassPW = password;
-
-                    // 사용자 직급별로 해당되는 창으로 이동
-                    if (id.substring(0, 1).equals("S"))
-                        // new WindowSTU();
-                    else if (id.substring(0, 1).equals("P"))
-                        // new WindowPROF();
-                    else if (id.substring(0, 1).equals("H"))
-                        // new WindowSTFH();
-                    else if (id.substring(0, 1).equals("G"))
-                        // new WindowSTFG();
-
-                    break;
-                }
-
-            }
-            // 예외 처리
-        } catch (SQLException e) {
-            System.out.println("[ERROR]" + e.getMessage());
-            e.printStackTrace();
-        } catch (Exception e) {
-            System.out.println("[ERROR]" + e.getMessage());
-            e.printStackTrace();
-        }
-    } */
 }
